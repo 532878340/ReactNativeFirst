@@ -7,8 +7,25 @@
 import React, {Component} from "react";
 import {AppRegistry} from "react-native";
 
-// import helloWorld from './01_helloworld/helloWorld';
-// import meituan from './02_flex/flex';
-import xiecheng from './03_flex_xiecheng/xiecheng';
+import {
+	StackNavigator,
+} from 'react-navigation';
 
-AppRegistry.registerComponent('ReactNativeFirst', () => xiecheng);
+const App = StackNavigator({
+	Main:{
+		screen:xiecheng,
+		navigationOptions:({navigation}) => ({
+			title:'welcome',
+		}),
+	},
+	Second:{screen:meituan},
+});
+
+// import helloWorld from './01_helloworld/helloWorld';
+import meituan from './02_flex/flex';
+import xiecheng from './03_flex_xiecheng/xiecheng';
+// import fetch from './04_fetchdata/fetch';
+import ScrollViewComponent from './05_scrollview/scrollview';
+import listview from './05_scrollview/listview';
+
+AppRegistry.registerComponent('ReactNativeFirst', () => listview);

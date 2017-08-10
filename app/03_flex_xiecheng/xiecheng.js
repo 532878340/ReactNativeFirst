@@ -11,9 +11,11 @@ import {
   View,
   Image,
   ScrollView,
+  Button,
 } from 'react-native';
 
-import Swiper from 'react-native-swiper'
+
+import Swiper from 'react-native-swiper';
 
 let Image_url = 'http://p0.meituan.net/mmc/fe4d2e89827aa829e12e2557ded363a112289.png';
 var sliderImgs = [
@@ -26,8 +28,10 @@ var Slider = React.createClass({
     render: function(){
 	    return (
 	      <Swiper height={90} 
-	      	autoplay={true} 
-	      	showsPagination={true}>
+	      	autoplay={true}
+	      	loop={true}
+	      	showsPagination={true}
+	      	paginationStyle={{ bottom: 5}}>
 	        <Image style={[styles.flex1]} source={{uri: sliderImgs[0]}}/>
 	        <Image style={[styles.flex1]} source={{uri: sliderImgs[1]}}/>
 	        <Image style={[styles.flex1]} source={{uri: sliderImgs[2]}}/>
@@ -38,9 +42,16 @@ var Slider = React.createClass({
 
 export default class XieCheng extends Component {
   render() {
+  	const {navigate} = this.props.navigation;
+
     return (
-    	<ScrollView style={{backgroundColor:'#ECECEC'}}>
+    	<ScrollView style={{backgroundColor:'#ECECEC'}}
+    		showsVerticalScrollIndicator={false}>
 	      	<Slider/>
+
+	      	<Button 
+	      		title="Go to"
+	      			onPress={() => navigate('Second',{name: 'Jane'})}/>
 
 	      	<View style={[styles.height90,styles.row,{backgroundColor:'skyblue'}]}>
 	      		<View style={{flex:1,borderColor:'white',borderRightWidth:0.5,alignItems:'center',paddingTop:10}}>

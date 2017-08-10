@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -284,5 +283,3 @@ const styles = StyleSheet.create({
     backgroundColor:'#F3F3F3',
   },
 });
-
-AppRegistry.registerComponent('ReactNativeFirst', () => helloWorld);
