@@ -11,7 +11,6 @@ import {
   StyleSheet,
   View,
   RefreshControl,
-  Timer,
 } from 'react-native';
 
 export default class ListViewComponent extends Component {
@@ -27,6 +26,7 @@ export default class ListViewComponent extends Component {
 	  	dataSource:ds,
 	  	data:{},
 	  	isRefreshing: false,
+	  	loadMore:false,
 	  }
 	}
 
@@ -84,7 +84,7 @@ export default class ListViewComponent extends Component {
 			this.setState({
 				isRefreshing:false,
 			});
-		},1000);
+		},3000);
 	}
 
   	render() {
@@ -95,6 +95,7 @@ export default class ListViewComponent extends Component {
 			    		dataSource = {this.state.dataSource.cloneWithRows(this.state.data)}
 			    		renderRow={(rowData,sectionId,rowId) => this._renderRow(rowData,rowId)}
 			    		showVerticalScrollIndicator={false}
+			    		enableEmptySections={true}
 			    		refreshControl={
 			    			<RefreshControl
 				    			refreshing={this.state.isRefreshing}

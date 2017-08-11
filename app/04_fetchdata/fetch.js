@@ -22,13 +22,15 @@ export default class fetchData extends Component{
 	}
 
 	fetchList(){
-		const url = 'http://106.14.112.233/app/gold/info/steadyList.do';
+		const url = 'https://api.github.com/users/mralexgray/repos';
 		fetch(url)
 			.then((response) => response.json())
 			.then((responseJson) => {
 				var users = responseJson;
-				console.log(users);
+				var firstUser = users[0].owner;
+				console.log(firstUser);
 				this.setState({
+					user:firstUser,
 				});
 			})
 			.catch((error) => console.error(error));

@@ -28,4 +28,8 @@ import xiecheng from './03_flex_xiecheng/xiecheng';
 import ScrollViewComponent from './05_scrollview/scrollview';
 import listview from './05_scrollview/listview';
 
-AppRegistry.registerComponent('ReactNativeFirst', () => listview);
+//第一天
+import day1 from './30day/day1';
+import day1impl from './30day/day1impl';
+
+AppRegistry.registerComponent('ReactNativeFirst', () => day1impl);
